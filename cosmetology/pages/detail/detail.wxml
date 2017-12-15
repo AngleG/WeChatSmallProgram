@@ -1,0 +1,35 @@
+<!--pages/detail/detail.wxml-->
+<view class='container'>
+  <view class='detail_banner' wx:if='{{artype == "nails"}}'>
+    <image src="../../images/banner_02.png" mode='aspectFill'></image>
+  </view>
+  <view class='detail_banner' wx:if='{{artype == "eyelash"}}'>
+    <image src="../../images/jiemao.jpg" mode='aspectFill'></image>
+  </view>
+  <view class='detail_banner' wx:if='{{artype == "beauty"}}'>
+    <image src="../../images/aili.jpg" mode='aspectFill'></image>
+  </view>
+  <view class='detail_banner' wx:if='{{artype == "hair"}}'>
+    <image src="../../images/yiben.jpg" mode='aspectFill'></image>
+  </view>
+  <view class='detail_banner' wx:if='{{artype == "beauty1"}}'>
+    <image src="../../images/weiwei.jpg" mode='aspectFill'></image>
+  </view>
+  <view class='detail_content'>
+    <text class='detail_title'>秋季自然特价美甲</text>
+    <text class='detail_price'>价格：￥198</text>
+    <text class='text_justify'>
+      美甲是一种对指（趾）甲进行装饰美化的工作，又称甲艺设计。美甲是根据客人的手形、甲形、肤质、服装的色彩和要求，对指（趾）甲进行消毒、清洁、护理、保养、修饰美化的过程。具有表现形式多样化的特点。
+    </text>
+    <text class='detail_line'></text>
+    <text class='detail_title'>详情描述</text>
+    <text>
+    一、涂指甲油之前要涂上指甲底油
+    二、不涂面油会让美甲面不堪一击
+    三、短甲小最好涂深色指甲油
+    四、美甲颜色要保持协调
+    五、不要小看修甲工具
+    </text>
+    <button class='detail_book' bindtap='bookTap'>立即预约</button>
+  </view>
+</view>

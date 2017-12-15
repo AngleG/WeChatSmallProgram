@@ -1,0 +1,55 @@
+<!--pages/book/book.wxml-->
+<import src="../../src/wetoast.wxml" />
+
+<view class='container'>
+  <view class='book_banner' wx:if="{{artype == 'nails'}}">
+    <image src='../../images/banner_02.png' mode='aspectFill'></image>
+  </view>
+  <view class='book_banner' wx:if="{{artype == 'eyelash'}}">
+    <image src='../../images/jiemao.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='book_banner' wx:if="{{artype == 'beauty'}}">
+    <image src='../../images/aili.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='book_banner' wx:if="{{artype == 'hair'}}">
+    <image src='../../images/yiben.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='book_banner' wx:if="{{artype == 'beauty1'}}">
+    <image src='../../images/weiwei.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='book_picker'>
+    <view class='book_picker_wrap'>
+      <picker bindchange='bindAddrPickerChange' value='{{addrIndex}}' range='{{addrArray}}'>
+        <view>
+          <text>{{addrArray[addrIndex]}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='book_cont'>
+    <text class='book_title'>服务时间</text>
+    <view class='book_date_time'>
+      <view class='book_date'>
+        <image src='../../images/date.png'></image>
+        <picker mode='date' placeholder='选择日期' value='{{date}}' start='2017-12-08' end='2018-01-30' bindchange='bindDateChange'>
+          <view>{{date}}</view>
+        </picker>
+      </view>
+      <view class='book_time'>
+        <image src='../../images/time.png'></image>
+        <picker mode='time' placeholder='选择时间' value='{{time}}' start='01:00' end='24:00' bindchange='bindTimeChange'>
+          <view>{{time}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <text class='book_title'>留言信息</text>
+    <input type='text' placeholder='输入留言' class='input_msg' bindinput='bindWords' name='words' placeholder-style='font-family:"微软雅黑"' />
+    <button class='book_btn' bindtap='bindToastTap'>确认预约</button>
+     <!-- <toast hidden='{{bookToastHidden}}' bindchange='hideToast'>
+        {{state}}
+    </toast>  -->
+  </view>
+</view>
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}" />

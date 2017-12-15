@@ -1,0 +1,46 @@
+<!--pages/technician_detail/technician_detail.wxml-->
+<view class='container'>
+  <view class='technician_banner' wx:if="{{artype == 'nails'}}">
+    <image src='../../images/banner_02.png' mode='aspectFill'></image>
+  </view>
+  <view class='technician_banner' wx:if="{{artype == 'hair'}}">
+    <image src='../../images/yiben.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='technician_banner' wx:if="{{artype == 'beauty1'}}">
+    <image src='../../images/weiwei.jpg' mode='aspectFill'></image>
+  </view>
+  <view class='technician_banner' wx:if="{{artype == 'eyelash'}}">
+    <image src='../../images/jiemao.jpg' mode='aspectFill'></image>
+  </view>
+
+  <view class='technician_cont'>
+    <view class='technician_title'>包技师</view>
+    <text>高级美容师就是指美容师中技术能力更好，获得了高级美容师资格证的美容师。美容师是一种专业美容领域的职业称谓。</text>
+    <view class='technician_title technician_title2'>【服务内容】</view>
+
+    <view class='sevice_list' style='border-top: 1px solid #ddd;'>
+      <text class='sevice_subject'>脸部的清洁</text>
+      <text class='sevice_price'>￥600</text>
+      <view class='sevice_book' bindtap='bookTap' data-aid='{{item.id}}'>
+        <text>预约</text>
+      </view>
+    </view>
+
+    <view class='sevice_list'>
+      <text class='sevice_subject'>保健按摩</text>
+      <text class='sevice_price'>￥800</text>
+      <view class='sevice_book' bindtap='bookTap' data-aid='{{item.id}}'>
+        <text>预约</text>
+      </view>
+    </view>
+
+    <view class='sevice_list'>
+      <text class='sevice_subject'>药物香薰</text>
+      <text class='sevice_price'>￥900</text>
+      <view class='sevice_book' bindtap='bookTap' data-aid='{{item.id}}'>
+        <text>预约</text>
+      </view>
+    </view>
+    
+  </view>
+</view>
