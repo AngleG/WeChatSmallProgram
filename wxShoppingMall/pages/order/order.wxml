@@ -1,0 +1,39 @@
+<!--pages/order/order.wxml-->
+<view class='container'>
+  <scroll-view>
+    <view class='nav-list'>
+      <view  wx:for='{{navlist}}' wx:key='item.id' class='{{active == index ? "on" : ""}}' bindtap='navNavigatorEvent' data-index='{{index}}' bindtap='navNavigatorEvent'>{{item}}</view>
+    </view>
+    <view wx:if='{{orderList}}'>
+      <view class='orderList' wx:if='{{thiStatus == "全部" || item.status == thiStatus}}' wx:for='{{orderList}}' wx:key='{{item.id}}' >
+        <view class='order-status clearfix'>
+          <text class='fl'>状态</text>
+          <text class='fr' style='color: #df5c1a;'>{{item.status}}</text>
+        </view>
+        <view class='goodsInfo clearfix' bindtap='navigatorToDetail' data-pid='{{item.id}}'>
+          <image class='smallPic fl' src='{{item.smallPic}}'></image>
+          <view class='productInfo fl'>
+            <view class='productName'><text>{{item.name}}</text></view>
+            <view class='productSize'><text>尺寸：{{item.size}}</text> <text>数量：{{item.count}}</text> </view>
+            <view class='productPrice'>￥{{item.price}}</view>
+          </view>
+        </view>
+        <view class='order-status gray clearfix'>
+          <text class='fr'>共{{item.count}}件商品 实付：￥{{item.price*item.count+item.freight}}(含运费￥{{item.freight}})</text>
+        </view>
+      </view>
+      
+    </view>
+    <view wx:else class='nothing'>
+      <view class='order-icon'>
+        <image src='../../images/order-icon.png'></image>
+      </view>
+      <view>
+        <text>您还没有相关的订单</text>
+      </view>
+      <view class='gotoIndex'>
+        <navigator url='../index/index' open-type='switchTab' hover-class='other-navigator-hover'>去逛逛</navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>

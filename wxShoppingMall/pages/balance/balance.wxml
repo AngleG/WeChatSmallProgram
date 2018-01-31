@@ -1,0 +1,156 @@
+<!--pages/balance/balance.wxml-->
+<import src='../../src/wetoast.wxml' />
+
+<view class='container'>
+  <scroll-view scroll-y='true'>
+    <view class='listItem clearfix'>
+      <text class='fl mr46'>配送方式</text>
+      <radio-group class='radio-group fl' bindchange='radioChange'>
+        <label class="radio {{selectWay == 1 ? 'radio-active' : '' }}">到店自提
+          <radio value='到店自提' checked='{{checkedWay}}' hidden='true'></radio>
+        </label>
+        <label class="radio {{selectWay == 2 ? 'radio-active' : '' }}">商家配送
+          <radio value='商家配送' checked='{{!checkedWay}}' hidden='true'></radio>
+        </label>
+      </radio-group>
+    </view>
+    <!-- 到店自提 -->
+    <view wx:if='{{selectWay == 1}}'>
+      <view class='listItem'>
+        <text>提货人</text>
+        <input class='fr' placeholder='请输入提货人名字' type='text' bindinput='inputNameEvent'></input>
+      </view>
+      <view class='listItem'>
+        <text>联系电话</text>
+        <input class='fr' placeholder='请输入联系电话' type='number' bindinput='inputPhoneEvent'></input>
+      </view>
+      <view class='listItem'>
+        <text>选择门店</text>
+        <view class='fr' bindtap='selectStoreEvent'>
+          <text class='grayfont'>{{toSelectStore}}</text>
+          <image class='slideimg' src='../../images/slide.png'></image>
+        </view>
+      </view>
+    
+      <view class='listItem selectDatetime clearfix'>
+        <text class='fl' style='margin-right: 50rpx;'>提货时间</text>
+        <view class='grayfont fr' bindtap='selectedDateTime'>
+          <text wx:if='{{!selectTime}}' class='clickIpt'>请选择时间</text>
+          <text wx:if='{{selectTime}}' class='clickIpt'>{{year}}年{{month}}月{{day}}日{{hour}}:{{minute}}</text>
+          <image src='../../images/date-icon.png'></image>
+        </view>
+      </view>
+    </view>
+    <!-- 商家配送 -->
+    <view wx:if='{{selectWay == 2}}'>
+      <view class='listItem' bindtap='selectAddrEvent'>
+        <text wx:if='{{addrStatus == "none" && addruse == false}}'>请完善收货地址</text>
+        <text wx:if='{{addruse}}'>收货地址</text>
+        <view class='fr' style='height: 130rpx;'>
+          <text class='grayfont'>{{toSelectAddr}}</text>
+          <!-- <view class='grayfont' style='height: 30rpx;'>{{toSelectAddr1}}</view> -->
+          <image class='slideimg' src='../../images/slide.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='listItem'>
+        <text>商品清单</text>
+      </view>
+
+      <view class='balanceProduct clearfix' wx:for='{{balanceProduct}}' wx:key='item.id'>
+        <image class='fl' src='{{item.smallPic}}'></image>
+        <view class='productInfo fl'>
+          <view class='productName'><text>{{item.name}}</text></view>
+          <view class='productSize'><text>尺寸：{{item.size}}</text> <text>数量：{{item.count}}</text> </view>
+          <view class='productPrice'>￥{{item.price}}</view>
+        </view>
+      </view>
+
+      <view class='totalPrice'>
+        <view>
+          <text>商品总额</text>
+          <text class='fr productPrice'>￥288</text>
+        </view>
+        <view>
+          <text>运费</text>
+          <text class='fr productPrice' >+{{freight}}</text>
+        </view>
+      </view>
+
+      <view class='coupon' bindtap='couponEvent'>
+        <text>优惠券</text>
+        <view class='fr'>
+          <text class='gray'>未使用</text>
+          <image src='../../images/slide.png'></image>
+        </view>
+      </view>
+
+      <view class='listItem leaving-message'>
+        <text>卖家留言</text>
+        <input type='text' value='' bindinput='bindInputEvent' placeholder='点击给卖家留言'></input>
+      </view>
+
+  </scroll-view>
+  <!-- submit begin -->
+  <view class='submit'>
+    <text class='fl'>实付款：￥{{totalPrice}}</text>
+    <view class='submitBtn' bindtap='submitEvent'>提交订单</view>
+  </view>
+  <!-- submit end -->
+
+<!-- date controler begin-->
+<view class='pickerview {{pickerSlide ? "pickerShow" : ""}}'>
+  <view class='cancelBtn' bindtap='cancelBtnEvent'>取消</view>
+  <view class='entureBtn' bindtap='entureBtnEvent'>确定</view>
+  <picker-view indicator-style="height: 40px;" style="width: 100%; height: 150px;" value="{{value}}" bindchange="bindChange">
+    
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{hours}}" style="line-height: 50px">{{item}}:</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{minutes}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<!-- date controler end-->
+
+<!-- stores controler begin -->
+<view class='mask {{storePopup ? "storePopupShow" : ""}}' >
+  <scroll-view class='stores-popup {{storePopup ? "slideUpStore" : ""}}' scroll-y='true'>
+    <image class='close1' bindtap='close1BtnEvent' src='../../images/close2.png'></image>
+    <view class='stores-list' wx:for='{{stores}}' wx:key='item.id'>
+      <view class='stores-area'>{{item.area}}</view>
+      <view class='store'>
+        <view class='store-title' bindtap='selectThiStore' data-name='{{item.name}}'>{{item.name}}</view>
+        <view class='store-addr'>
+          <image src='../../images/address-icon.png'></image>
+          <text>{{item.address}}</text>
+        </view>
+        <view class='store-contact clearfix'>
+          <view class='fl' bindtap='callEvent' data-phone='{{item.phone}}'>
+            <image src='../../images/phone-icon.png'></image>
+            <text>电话</text>
+          </view>
+          <view class='fl' bindtap='openLocationEvent'>
+            <image src='../../images/navigation.png'></image>
+            <text>导航</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- stores controler end -->
+</view>
+
+<!-- wetoast -->
+<template is='wetoast' data='{{...__wetoast__}}' />

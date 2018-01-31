@@ -1,0 +1,56 @@
+<!--pages/personalInfo/personalInfo.wxml-->
+<view class='container'>
+  <scroll-view scroll-y='true'>
+    <view class='infolist userinfo clearfix'>
+      <text class='fl'>我的头像</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <image src='{{headUrl}}' class='userinfo-avatar fr' background-size='cover' bindtap='selectPicEvent'></image>
+    </view>
+
+    <view class='infolist clearfix'>
+      <text class='fl'>昵称</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <!-- <text class='userinfo-nickname fr'></text> -->
+      <input value='{{userInfo.nickName}}' class='userinfo-nickname fr'></input>
+    </view>
+
+    <view class='infolist clearfix'>
+      <text class='fl'>姓名</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <input class="fr" placeholder='未设置' bindinput='bindIptEvent'></input>
+    </view>
+
+    <view class='infolist clearfix'>
+      <text>性别</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <picker class='fr' bindchange='bindPickerChange' value='{{genderIndex}}' range='{{genderArray}}'>
+        <view>{{genderArray[genderIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class='infolist clearfix'>
+      <text>生日</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <picker class='fr' bindchange='bindDateChange' mode="date" value='{{date}}' start="1900-01-01" end="{{datenow}}">
+        <view>{{date}}</view>
+      </picker>
+    </view>
+
+    <view class='infolist clearfix'>
+      <text>所在地区</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <picker class='fr' bindchange='bindRegionChange' mode="region" value='{{region}}' custom-item="{{customItem}}">
+        <view>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+      </picker>
+    </view>
+
+    <view class='infolist clearfix'>
+      <text class='fl'>地址</text>
+      <image class='fr slidepic' src='../../images/slide.png'></image>
+      <input class='fr' placeholder='未设置' bindinput='bindIptEvent'></input>
+    </view>
+
+  </scroll-view>
+
+  <navigator url='../personal/personal' open-type='switchTab' hover-class='other-navigator-hover'>完 成</navigator>
+</view>

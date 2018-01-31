@@ -1,0 +1,115 @@
+<!--pages/detail/detail.wxml-->
+<import src='../../src/wetoast.wxml' />
+
+<view class='contianer'>
+  <scroll-view scroll-y='true'>
+    <!-- banner start -->
+    <view class='swiper'>
+      <swiper indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'  circular='true'>
+        <block wx:for-items='{{banner_url}}' wx:key="item.id">
+          <swiper-item>
+            <block wx:if='{{item}}'>
+              <image src='{{url+item}}' mode='aspectFill'></image>
+            </block>
+            <block wx:else>
+              <image src='../../images/default_pic.png' mode='aspectFill'></image>
+            </block>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- banner start -->
+
+    <view class='detail-info' wx:if='{{detailsProductInfo}}'>
+      <view class='detail-main-info'>
+        <view class='detail-name'>{{detailsProductInfo.title}}</view>
+        <view class='detail-price'>￥{{detailsProductInfo.price/100}}</view>
+      </view>
+      <view class='detail-main-info'>
+        <view class='detail-other'>销量：68</view>
+        <view class='detail-other'>库存：{{detailsProductInfo.num}}</view>
+      </view>
+
+      <view class='detail-main-info detail-tips'>
+        <view>每天最晚配送时间20点，请提前3小时预定</view>
+        <view>邮费0.00元起，具体费用以实际情况为准</view>
+      </view>
+
+      <view class='detail-main-info shipping-method'>
+        <text>配送方式:</text>
+        <view class='inline'>
+          <image src='../../images/express-icon.png'></image>
+          <text>商家配送</text>
+        </view>
+        <view class='inline'>
+          <image src='../../images/take-icon.png'></image>
+          <text>到店自提</text>
+        </view>
+      </view>
+
+      <view class='product-size'>
+        <view>
+          <radio-group class='radio-group' bindchange='radioChange'>
+            <label class="radio {{radioCheckedVal==item.value ? 'radio-active' : '' }} " wx:for='{{radioItems}}'>{{item.name}}
+              <radio value='{{item.value}}' checked='{{item.checked}}' hidden='true'>{{item.value}}</radio>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <view class='product-details'>
+      <text>商品详情</text>
+      <view class='detailsPic' wx:if='{{detailsProduct}}' >
+        <view wx:for='{{detailsProduct}}' wx:for-item='item'> 
+           <image src='{{url+item}}' mode='widthFix'></image> 
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- buy/shoppingCart begin -->
+  <view class='buy-shoppingCart'>
+    <navigator class='navi-block' url='../index/index' hover-class='navigator-hover' open-type="switchTab">
+      <image src='../../images/home.png'></image>
+    </navigator>
+    <navigator class='navi-block'  url='../shoppingcart/shoppingcart' hover-class='navigator-hover' open-type="switchTab">
+      <image src='../../images/cart.png'></image>
+    </navigator>
+    <view class='cart' bindtap='addToCartEvent'>
+      <text>加入购物车</text>
+    </view>
+    <view class='payment' bindtap='buyEvent'>
+      <text>立即购买</text>
+    </view>
+  </view>
+  <!-- buy/shoppingCart end -->
+
+  <!-- shopping cart begin -->
+  <view class='mask' hidden='{{display}}'>
+    <view class="shopping-cart {{ display == 'true' ? 'slideDown' : 'slideUp'}}">
+      <view class='close-view clearfix'><image class='fr' src='../../images/close.png' bindtap='closeEvent'></image></view>
+      <view class='select-product' wx:if='{{shoppingCartInfo}}'>
+        <view class='product-smallpic'>
+          <image src='{{shoppingCartInfo.smallPic}}'></image>
+        </view>
+        <view class='main-info'>
+          <text class='shoppingcart-name'>{{shoppingCartInfo.name}}</text>
+          <text class='shoppingcart-size'>{{shoppingCartInfo.size}}</text>
+          <text class='shoppingcart-price'>{{shoppingCartInfo.price}}</text>
+        </view>
+        <view class='add-reduce'>
+          <image src='../../images/reduce.png' bindtap='countReduceEvent'></image>
+          <input value='{{productCount}}' type='text' disabled='true'></input>
+          <image src='../../images/add.png' bindtap='countAddEvent'></image>
+        </view>
+      </view>
+      <!-- button -->
+      <button wx:if='{{navigateToId == "car"}}' bindtap='confirmEvent' data-pid='{{shoppingCartInfo.id}}'>确 定</button>
+      <button wx:if='{{navigateToId == "buy"}}' bindtap='confirmBuyEvent' data-pid='{{shoppingCartInfo.id}}'>确 定</button>
+    </view>
+  </view>
+  <!-- shopping cart begin -->
+</view>
+
+<!-- wetoast -->
+<template is='wetoast' data='{{...__wetoast__}}' />

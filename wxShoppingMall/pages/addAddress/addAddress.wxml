@@ -1,0 +1,28 @@
+<!--pages/addAddress/addAddress.wxml-->
+<view class='container'>
+  <view class='clearfix'>
+    <text class='fl'>收 货 人 ：</text>
+    <input class='fr'></input>
+  </view>
+  <view class='clearfix'>
+    <text class='fl'>手机号码：</text>
+    <input class='fr'></input>
+  </view>
+  <view class='clearfix'>
+    <text class='fl'>收货地址：</text>
+    <picker class='fl' bindchange='bindRegionChange' mode="region" value='{{region}}' custom-item="{{customItem}}">
+      <view>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+    </picker>
+  </view>
+  <view class='clearfix'>
+    <text class='fl'>详细地址：</text>
+    <input class='fr'></input>
+  </view>
+  <checkbox-group class='checkbox' bindchange="checkboxChange">
+    <label>
+      <checkbox value="true" checked="{{checked}}" />设为默认地址
+    </label>
+  </checkbox-group>
+  <view class='saveBtn' bindtap='saveEvent'>保 存</view>
+</view>
+

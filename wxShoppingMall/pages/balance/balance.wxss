@@ -1,0 +1,278 @@
+/* pages/balance/balance.wxss */
+scroll-view{
+  padding-bottom: 100rpx;
+}
+scroll-view .listItem{
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #ddd;
+  height: 90rpx;  
+}
+scroll-view .listItem text{
+  height: 100%;
+  line-height: 90rpx;
+  vertical-align: middle;
+  font-size: 32rpx;
+}
+scroll-view .mr46{
+  margin-right: 46rpx;
+}
+scroll-view view .slideimg,.coupon image{
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: middle;
+}
+scroll-view .listItem .grayfont{
+  color: #808080;
+  font-size: 30rpx;
+}
+scroll-view input{
+  vertical-align: middle;
+  width: 500rpx; 
+  height: 100%; 
+  background: #eee;
+  font-size: 30rpx;
+  margin-left: 40rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.selectDatetime{
+  position: relative;
+}
+.selectDatetime .clickIpt{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+  width: 500rpx;
+  border: 1px solid #79e0d6;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+}
+.selectDatetime image{
+  position: absolute;
+  top: 45rpx;
+  right: 65rpx;
+}
+
+.radio-group .radio{
+  display: inline-block;
+  width: 160rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border: 1px solid #696969;
+  border-radius: 14rpx;
+  margin: 10rpx 40rpx 10rpx 0rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.radio-group radio{
+  width: 100%;
+  height: 100%;
+}
+.radio-group .radio.radio-active{
+   border: 1px solid #79e0d6; 
+   color: #79e0d6;
+}
+.balanceProduct,.totalPrice,.coupon{
+  padding:20rpx 40rpx;
+   font-size: 32rpx; 
+}
+.totalPrice {
+  margin-top: 30rpx;
+  border-bottom:1px solid #ddd; 
+}
+.totalPrice text{
+  line-height: 58rpx;
+}
+.balanceProduct image{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right:30rpx;
+}
+.balanceProduct .productName{
+  font-weight: bold;
+  margin-top: 15rpx;
+}
+.balanceProduct .productSize{
+  color: #979797;
+}
+.balanceProduct .productSize text{
+  margin-right: 30rpx;
+  font-size: 28rpx;
+  line-height: 54rpx;
+}
+.balanceProduct .productPrice,.totalPrice .productPrice{
+  color: #ff5e45;
+  font-size: 32rpx;
+}
+.selectDatetime image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.coupon{
+  border-bottom:1px solid #ddd; 
+}
+.coupon text{
+  line-height: 60rpx;
+}
+.coupon .gray{
+  color:#808080;
+  font-size:30rpx;
+}
+.leaving-message input{
+  display: inline-block;
+  width: 540rpx;
+  background: none;
+  margin-left: 10rpx;
+}
+.submit{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  font-size: 32rpx;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  z-index: 99;
+}
+.submit text{
+  width: 70%;
+  line-height: 100rpx;
+  font-weight: bold;
+  color: #ff5e45;
+  text-align: right;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+.submit .submitBtn{
+  float: left;
+  width: 30%;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  background: #ff4e25;
+  color: #fff;
+}
+.container .pickerview{
+  width: 100%;
+  position: fixed; 
+  bottom: -50%;
+  left: 0;
+  box-sizing: border-box;
+  box-shadow: 0px -5px 5px #e6e6e6;
+  z-index: 999;
+  padding: 100rpx 20rpx;
+  background: #fff;
+  visibility: hidden;
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+}
+picker-view-column {
+  text-align: center;
+}
+.pickerview .entureBtn,.pickerview .cancelBtn{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #79e0d6;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+  position: absolute;
+  top: 15rpx;
+  z-index: 9999;
+}
+
+.pickerview .entureBtn{
+  right: 20rpx;
+}
+.pickerview .cancelBtn{
+  background: #e6e6e6;
+  left: 20rpx;
+}
+.pickerview.pickerShow{
+  visibility: visible;
+  bottom: 0;
+}
+
+/* mask */
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  visibility: hidden;
+}
+.mask.storePopupShow{
+  visibility: visible;
+}
+.mask .stores-popup{
+  width: 100%;
+  max-height: 600rpx; 
+  position: absolute;
+  bottom: -55%;
+  left: 0;
+  background: #fff;
+  padding: 10rpx 25rpx 20rpx 25rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+}
+.mask .stores-popup.slideUpStore{
+  bottom: 0;
+}
+.mask .stores-popup .close1{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* margin-left: -30rpx; */
+}
+.mask .stores-list{
+  margin-bottom: 15rpx;
+}
+.mask .stores-area{
+  font-weight: bold;
+  line-height: 120rpx;
+  border-bottom: 1px solid #ddd;
+}
+.mask .stores-list image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.mask .store-title{
+  line-height: 80rpx;
+}
+.mask .store-addr{
+  line-height: 70rpx;
+  border-bottom: 1px dashed #ddd;
+}
+.mask .stores-list .store-addr{
+  font-size: 28rpx;
+  color: #979797;
+}
+.mask .store-addr image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.mask .store-contact{
+  border-bottom: 1px dashed #ddd;
+}
+.mask .store-contact view{
+  width: 49%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 8rpx 0rpx;
+}
+.mask .store-contact view:first-child{
+  border-right: 1px solid #ddd;
+}

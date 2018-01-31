@@ -1,0 +1,117 @@
+/* pages/personal/personal.wxss */
+page{
+  background: #eee;
+}
+.head{
+  width: 100%;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+  background: #79e0d6;
+  position: relative;
+}
+.userinfo .userinfo-avatar{
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.userinfo-nickname{
+  color: #fff;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.personal-info{
+  position: absolute;
+  width: 170rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #fff;
+  top: 35%;
+  right: 0;
+  font-size: 28rpx;
+  color: #79e0d6;
+  padding-left: 30rpx;
+  border-top-left-radius: 40rpx;
+  border-bottom-left-radius: 40rpx;
+}
+.personal-info:active{
+  background: #f8f8f8;
+}
+.user-privilege{
+  height: 110rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8rpx 0;
+  background: #fff;
+}
+.user-privilege view{
+  width: 50%;
+  line-height: 110rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6b696a;
+}
+.user-privilege text{
+  font-weight: bold;
+}
+.user-privilege view:first-child{
+  border-right: 1px dashed #ddd;
+}
+.user-order{
+  font-size: 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.user-order .slidepic{
+  margin-top: -6rpx;
+}
+.user-order .orders{
+  padding: 28rpx 15rpx 28rpx 40rpx;
+  border-bottom: 1px solid #ddd;
+}
+.user-order .orders:active{
+  background: #f8f8f8;
+}
+.user-order .showall{
+  color: #b0afaf;
+  font-size: 28rpx;
+}
+.user-order .order-summary{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding: 36rpx 80rpx 20rpx;
+}
+.order-summary > view{
+  color: #6b696a;
+}
+.order-summary image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 6rpx;
+}
+.personal-list{
+  font-size: 30rpx;
+  background: #fff;
+}
+.personal-list view{
+  padding: 0rpx 15rpx 0rpx 40rpx;
+  line-height: 92rpx;
+  border-bottom: 1px solid #ddd;
+}
+.personal-list view:active{
+  background: #f8f8f8;
+}
+.personal-list .icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 24rpx;
+  margin-right: 14rpx;
+}
+.slidepic{
+  width: 52rpx;
+  height: 52rpx;
+  margin-top: 22rpx;
+}

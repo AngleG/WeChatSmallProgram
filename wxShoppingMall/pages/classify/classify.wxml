@@ -1,0 +1,71 @@
+<!--pages/classify/classify.wxml-->
+<view class='container'>
+  <!-- classify begin -->
+    <view class='top-list'>
+      <view class='top-classify' bindtap='navClickEvent' data-key='classify'>
+        <text>分类</text>
+        <image src='../../images/slide-iconB.png'></image>
+      </view>
+
+      <view class='top-size' bindtap='navClickEvent' data-key='size'>
+          <text>规格</text>
+          <image src='../../images/slide-iconB.png'></image>
+      </view>
+
+      <view class='top-price' bindtap=''>
+          <text>价格</text>
+          <view class='price-range'>
+            <view><image src='../../images/slide-iconT.png'></image></view>
+            <view><image src='../../images/slide-iconB.png'></image></view>
+          </view>
+      </view>
+
+      <view class='top-search' bindtap='searchEvent'>
+          <text>水果蛋糕</text>
+          <image src='../../images/search-icon.png'></image>
+      </view> 
+    </view>
+  <!-- classify end -->
+
+  <!-- classify pop -->
+  <view class='mask {{key ? "show":""}} '>
+    <scroll-view class='popup {{key ? "slideDown1" : ""}} ' scroll-y='true'>
+      <view wx:if='{{key == "classify"}}' class='classifyList clearfix'>
+        <view wx:for='{{classifyList}}'>
+          <text class='{{selectId === index ? "selected" : "" }}' bindtap='selectEvent' data-index='{{index}}'>{{item}}</text>
+        </view>
+      </view>
+      <view wx:if='{{key == "size"}}' class='classifyList clearfix'>
+        <view wx:for='{{sizeList}}'>
+          <text class='{{selectId === index ? "selected" : ""}}' bindtap='selectEvent' data-index='{{index}}'>{{item}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='control-btn {{key ? "slideDown" : ""}} '>
+      <view class='cancelBtn' bindtap='cancelEvent'>重置</view>
+      <view class='entureBtn'  bindtap='entureEvent'>确定</view>
+    </view>
+  </view>
+  <!-- classify pop -->
+
+  <!-- product list begin -->
+  <scroll-view scroll-y='true' bindscrolltolower='loadmore'>
+   <view class='product'>
+      <view class='product-list' wx:if='{{list[curNavId]}}'>
+        <view class='product-list-items' wx:for='{{list[curNavId]}}'>
+          <view class='pic' bindtap='gotoDetail' data-pid='{{item.id}}'>
+            <image src='{{item.imgUrl}}'></image>
+          </view>
+          <view class='product-info'>
+            <text>{{item.title}}</text>
+            <text class='price'>{{item.price}}</text>
+            <view class='car'><image src='{{item.carImg}}'></image></view>
+          </view>
+        </view>
+
+      </view>
+
+    </view>
+  </scroll-view>
+  <!-- product list end -->
+</view>

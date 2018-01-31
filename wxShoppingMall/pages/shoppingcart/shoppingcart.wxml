@@ -1,0 +1,63 @@
+<!--pages/shoppingcart/shoppingcart.wxml-->
+<view class='container'>
+  <scroll-view scroll-y='true'>
+    <view class='product-list' wx:if='{{carlist}}'>
+      <block wx:for='{{carlist}}' wx:key='item.id'>
+        <view class="product-list-items" data-carid='{{item.id}}' data-index='{{index}}'>
+          <label>
+            <icon wx:if='{{item.selected}}' type='success' size='22' color='#79e0d6' bindtap='selectItemEvent' data-index='{{index}}'></icon>
+            <icon wx:else type='circle' size='22' color='#ddd' bindtap='selectItemEvent' data-index='{{index}}'></icon>
+          </label>
+          <view class='product-img'>
+            <image src='{{item.smallPic}}' mode='widthFix'></image>
+          </view>
+          <view class='product-info-list' bindtap='gotoDetail' data-pid='{{item.id}}'>
+            <text class='product-name'>{{item.name}}</text>
+            <text class='product-size'>{{item.size}}</text>
+            <text class='product-price'>￥{{item.price}}</text>
+          </view>
+          <view class='product-info-count'>
+            <image src='../../images/delete.png' bindtap='deleteBtn' data-carid='{{item.id}}' data-index='{{index}}'></image>
+            <view class='add-reduce'>
+              <image src='../../images/reduce.png' bindtap='bindReduceEvent' data-carid='{{item.id}}'></image>
+              <input type='text' disabled='true' value='{{item.count}}'></input>
+              <image src='../../images/add.png' bindtap='bindAddEvent' data-carid='{{item.id}}'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- total begin -->
+      <view class='total-price'>
+        <view class='radio'>
+          <icon wx:if='{{selectedAllStatus}}' type='success' color='#79e0d6' size='22' bindtap='selectAllEvent'></icon>
+          <icon wx:else type='circle' color='#ddd' size='22' bindtap='selectAllEvent'></icon>
+          <text>全选</text>
+        </view>
+        <view class='total'>
+          <view>合计：<text>{{totalPrice}}</text></view>
+          <text>(已优惠：0元)</text>
+        </view>
+        <view class='balance'>
+          <navigator url='../balance/balance'>去结算</navigator>
+        </view>
+      </view>
+      <!-- total end -->
+      
+    </view>
+
+
+    <!-- 购物车为空 -->
+    <view wx:else class='nothing'>
+      <!-- <view class='nothing-pic'> -->
+        <image src='../../images/car-empty.png'></image>
+      <!-- </view> -->
+      <view class='hint'>
+        <navigator url='../index/index' open-type='switchTab' hover-class='other-navigator-hover'>购物车还没有商品，快去添加吧~</navigator>
+        <!-- <text>购物车还没有商品，快去添加吧~</text> -->
+      </view>
+    </view>
+
+  </scroll-view>
+
+</view>

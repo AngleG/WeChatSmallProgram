@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y='true' bindscrolltolower='loadmore'>
+    <!-- banner start-->
+    <view class='swiper'>
+      <swiper indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'  circular='true'>
+        <block wx:for-items='{{banner_url}}' wx:key="item.id">
+          <swiper-item>
+            <block wx:if='{{item}}'>
+              <image src='{{item}}' mode='aspectFill'></image>
+            </block>
+            <block wx:else>
+              <image src='../../images/default_pic.png' mode='aspectFill'></image>
+            </block>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- banner end -->
+
+    <!-- nav start -->
+    <view class='nav-list'>
+      <block wx:for='{{navListItems}}' wx:key='item.id'>
+        <view class="nav-list-item {{curNavId == item.id ? 'active'+index : '' }}" bindtap='switchTab' data-index='{{index}}' data-id='{{item.id}}'>
+          <image src='{{item.icon}}' mode='aspectFill'></image>
+          <text>{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+    <!-- nav end -->
+
+    <!-- product start -->
+    <view class='product'>
+      <view class='product-list clearfix' wx:if='{{list}}'>  <!--  [curNavId] -->
+        <block wx:for='{{list}}' wx:key='item.id'>
+          <view class='product-list-items'>
+            <view class='pic' bindtap='navigateDetail' data-pid='{{item.id}}'><image src='{{url+item.images}}'></image></view>
+            <view class='product-info'>
+              <text class='title'>{{item.title}}</text>
+              <text class='price'>{{item.price/100}}</text>
+              <view class='car'><image src='../../images/car.png'></image></view>
+            </view>
+          </view>
+        </block>
+        
+      </view>
+    </view> 
+    <!-- product end -->
+  </scroll-view>  
+</view>
