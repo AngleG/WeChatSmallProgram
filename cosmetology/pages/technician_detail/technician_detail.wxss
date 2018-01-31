@@ -1,0 +1,64 @@
+/* pages/technician_detail/technician_detail.wxss */
+.container{
+  background: #fff;
+}
+.technician_banner{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 20rpx;
+  margin: 0;
+}
+.technician_banner image{
+  width: 100%;
+  height: 390rpx;
+}
+.technician_cont{
+  padding: 0rpx 60rpx;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 45rpx;
+   margin-bottom: 40rpx; 
+}
+.technician_cont .technician_title{
+  color: #000;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  line-height: 64rpx;
+}
+.technician_cont .technician_title2{
+  text-align: left;
+  padding: 60rpx 0;
+}
+.sevice_list{
+  display: flex;  
+  flex-direction: row; 
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10rpx 0;
+  line-height: 80rpx;
+  vertical-align: middle;
+}
+.sevice_subject{
+  width: 280rpx;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sevice_price{
+  color: #e64340;
+}
+.sevice_book{
+  display: block;
+  font-size: 24rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: #d24a58;
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+}
+.sevice_book text{
+
+}

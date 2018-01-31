@@ -1,0 +1,55 @@
+/* pages/edit_addr/edit_addr.wxss */
+.container{
+  margin: 0 auto;
+  padding: 0;
+  width: 600rpx;
+}
+form{
+  width: 100%;
+  padding: 60rpx 0rpx 20rpx;
+  box-sizing: border-box;
+}
+.form_group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30rpx;
+  margin: 20rpx;
+  line-height: 60rpx;
+}
+.form_group text{
+  width: 100rpx;
+  text-align: right;
+}
+.form_group input,.form_group picker{
+  border-radius: 8rpx;
+  border: 1px solid #ddd;
+  padding:0rpx 10rpx;
+  width: 460rpx;
+  height:60rpx;
+  line-height: 60rpx;
+}
+.form_group .sendCodeIpt{
+  width: 290rpx;
+  margin-right: 15rpx;
+}
+.form_group button{
+  font-size: 26rpx;
+  background: #fff;
+  height: 68rpx;
+  line-height: 68rpx;
+  padding: 0;
+  margin: 0;
+}
+.save_btn{
+  width: 100%;
+  font-size: 32rpx;
+  background: #d24a58;
+  color: #fff;
+  border-radius: 0;
+  margin: 40rpx 0rpx 10rpx;
+}
+.placeholder_style{
+  font-family: "微软雅黑";
+  color: #adadad;
+}
