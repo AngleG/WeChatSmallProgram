@@ -1,0 +1,38 @@
+<!--pages/detail/detail.wxml-->
+<view wx:if='{{bookData}}'>
+  <view class='cover_container'>
+    <image src='{{bookData.image}}'></image>
+  </view>
+
+  <view class='book_meta'>
+    <view class='meta_info'>
+      <text class='book_title'>{{bookData.title}}</text>
+      <text class='book_other'>作者:<block wx:for='{{bookData.author}}' wx:for-item='item'>{{item}}</block></text>
+      <text class='book_other'>出版社:{{bookData.publisher}}</text>
+      <text class='book_other'>出版日期:{{bookData.pubDate}}</text>
+    </view>
+    <view class='range'>
+      <view>评分：<text class='score'>{{bookData.rating.average}}</text></view>
+      <view>阅读量：<text class='viewers'>{{bookData.rating.numRaters ? bookData.rating.numRaters : 0}}</text></view>
+    </view>
+  </view>
+
+  <view class='book_intro' wx:if='{{bookData.summary}}'>
+    <view class='intro_header'><text>简介</text></view>
+    <text class='intro_content'>
+      {{bookData.summary}}
+    </text>
+  </view>
+
+  <view class='book_intro' wx:if='{{bookData.author_intro}}'>
+    <view class='intro_header'><text>作者简介</text></view>
+    <text class='intro_content'>
+      {{bookData.author_intro}}
+    </text>
+  </view>
+
+</view>
+
+<loading hidden='{{loadingHidden}}'>
+  加载中...
+</loading>
