@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/classify/classify",
+    "pages/shoppingcart/shoppingcart",
+    "pages/balance/balance",
+    "pages/search/search",
+    "pages/personal/personal",
+    "pages/personalInfo/personalInfo",
+    "pages/address/address",
+    "pages/addAddress/addAddress",
+    "pages/order/order"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#37383c",
+    "navigationBarTitleText": "多穗麦吉商城",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+    "color": "#333",
+    "selectedColor": "#75dfd5",
+    "backgroundColor": "#f6f6f7",
+    "borderStyle": "#eee",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-light.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "images/classify.png",
+        "selectedIconPath": "images/classify-light.png"
+      },
+      {
+        "pagePath": "pages/shoppingcart/shoppingcart",
+        "text": "购物车",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart-light.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "images/personal.png",
+        "selectedIconPath": "images/personal-light.png"
+      }
+    ]
+  }
+}

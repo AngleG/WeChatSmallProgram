@@ -1,0 +1,46 @@
+<!--pages/address/address.wxml-->
+<import src='../../src/wetoast.wxml' />
+
+<view class='container'>
+<scroll-view scroll-y='true' style='padding-bottom: 120rpx;'>
+  <view wx:if='{{addressList}}'>
+    <radio-group > 
+    <view class='addresslist' wx:for='{{addressList}}' wx:key='item.id'>
+      <view class='listitem clearfix'>
+        <view>{{item.username}} {{item.telephone}}</view>
+        <view>{{item.province}}/{{item.city}}/{{item.district}}/{{item.addrDetail}}</view>
+      </view>
+      <view class='radioGroup clearfix'>
+       
+        <label class='fl {{item.checked == "1" ? "checked" : ""}}'>
+          <radio value="{{item.id}}" data-index='{{index}}' data-addid='{{item.id}}' bindtap='radioCheckedEvent' checked='{{item.check}}'/>设为默认地址
+        </label>
+        <view class='delete fr' bindtap='deleteEvent' data-index='{{index}}' data-aid='{{item.id}}'>
+          <image src='../../images/delete-icon.png'></image>
+          <text>删除</text>
+        </view>
+        <view class='fr edit' bindtap='editEvent' data-aid='{{item.id}}'>
+          <image src='../../images/edit.png'></image>
+          <text>编辑</text>
+        </view>
+        <view class='fr use' wx:if='{{item.check == true && status}}' bindtap='useEvent' data-addrid='{{item.id}}'>使用</view>
+      </view>
+      
+    </view>
+    </radio-group> 
+  </view>
+  <view class='hint'>
+    <text class='title'>重要提示</text>
+    <text>下单前请务必与客服联系</text>
+    <text>确认您填写的收货地址是否在我们的配送范围内</text>
+    <view style='font-size: 32rpx; color: #000; margin-top: 15rpx;'>客服电话：<text style='color: #007aff; display: inline; font-weight: bold;'>021-64826292</text></view>
+  </view>
+
+  <view class='addAddr clearfix' bindtap='addAddrEvent'>
+    添加收货地址
+  </view>
+</scroll-view>
+</view>
+
+<!-- wetoast -->
+<template is='wetoast' data='{{...__wetoast__}}' />

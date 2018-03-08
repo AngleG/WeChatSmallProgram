@@ -1,0 +1,181 @@
+/* pages/classify/classify.wxss */
+page{
+  background: #eee;
+}
+.top-list{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0rpx 10rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.top-list > view{
+  text-align: center;
+  width: 25%;
+  padding: 20rpx 0rpx;
+  border-right: 1px solid #ddd;
+}
+.top-list image{
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+}
+ .top-list .top-price{
+  position: relative;
+}
+.top-price .price-range{
+  position: absolute;
+  top: 14rpx;
+  right: 20rpx;
+  width: 48rpx;
+  height: 48rpx;
+  
+} 
+.top-price .price-range view{
+  height: 18rpx;
+}
+.top-list .top-search{
+  border-right: none;
+  /* padding-left: 12rpx; */
+}
+.top-list .top-search image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: bottom;
+  margin-left: 10rpx;
+}
+
+.product{
+  margin-top: 95rpx;
+}
+/* .product-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+.product-list-items{
+  width: 49.5%;
+  background: #fff;
+  /* border: 1px solid #eee; */
+   margin-bottom: 5rpx; 
+   float: left;
+}
+ .product-list-items:nth-child(odd){
+  margin-right: 1%;
+} 
+.product-list-items .pic{
+  width: 100%;
+  height: 400rpx;
+}
+.product-list-items image{
+  width: 100%;
+  height: 100%;
+}
+.product-list-items .product-info{
+  font-size: 30rpx;
+  color: #333;
+  padding: 10rpx 20rpx;
+  position: relative;
+}
+.product-list-items .product-info text{
+  display: block;
+  line-height: 46rpx;
+}
+.product-list-items .product-info .price{
+  color: #ff5e45;
+}
+.product-list-items .product-info .car{
+  position: absolute;
+  bottom: 0rpx;
+  right: 10rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9;
+  visibility: hidden; 
+}
+.mask .popup{
+  width: 100%;
+  height: 290rpx;
+  padding: 50rpx 50rpx 10rpx 50rpx;
+  box-sizing: border-box;
+  background: #fafafa;
+  position: absolute;
+  top: -300rpx;
+  left: 0;
+  z-index: 9;
+  transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+}
+.mask .classifyList{
+  width: 100%;
+}
+.popup view{
+  font-size: 30rpx;
+}
+.popup view{
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  float: left;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.popup view text{
+  padding: 10rpx 50rpx;
+  border: 1px solid #79e0d6;
+  background: #fff;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.popup text.selected{
+  background: #79e0d6;
+  color: #fff;
+}
+.mask .control-btn{
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  position: absolute;
+  /* top: 378rpx; */
+  top: -378rpx; 
+  left: 0;
+  z-index: 9;
+  transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+}
+.mask .control-btn view{
+  width: 50%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  float: left;
+}
+.mask .control-btn .entureBtn{
+  background: #79e0d6;
+  color: #fff;
+}
+.mask.show{
+  visibility: visible;
+}
+.mask .popup.slideDown1{
+  top: 90rpx;
+}
+ .mask .control-btn.slideDown{
+  top: 378rpx;
+} 

@@ -1,0 +1,77 @@
+/* pages/search/search.wxss */
+page{
+  background: #f0f4f5;
+}
+.search,.hot-search,.history-search{
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.search{
+  width: 100%;
+  padding: 15rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.search input{
+  display: inline-block;
+  width: 600rpx;
+  height: 80rpx;
+  border-radius: 5rpx;
+  background: #eee;
+  padding: 0rpx 80rpx 0rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.search image{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 36rpx;
+  right: 18%;
+  z-index: 9;
+}
+.search view{
+  line-height: 80rpx;
+  padding-right: 10rpx;
+}
+.hot-search,.history-search{
+  padding: 0rpx 30rpx 30rpx 0rpx;
+  font-size: 32rpx;
+}
+.hot-search image{
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: middle;
+}
+.history-search image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-right: 12rpx;
+}
+.hot-search .title,.history-search .title{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #eee;
+}
+.history-search .title{
+  padding-left: 15rpx;
+}
+.searchHotList{
+  padding: 20rpx;
+}
+.history-search .clearData{
+  font-size: 30rpx;
+  color: #79e0d6;
+}
+.nothing{
+  text-align: center;
+  line-height: 100rpx;
+  color: #9a9a9a;
+}
+.searchHotList view{
+  float: left;
+  margin-left: 40rpx;
+  line-height: 90rpx;
+  color: #9a9a9a;
+}

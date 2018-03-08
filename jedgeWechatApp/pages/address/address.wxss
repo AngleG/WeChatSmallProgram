@@ -1,0 +1,82 @@
+/* pages/address/address.wxss */
+page{
+  background: #f0f4f5;
+}
+.container text{
+  font-size: 30rpx;
+}
+.addAddr{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  background: #79e0d6;
+  color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.addresslist .listitem{
+  width: 100%;
+  padding: 28rpx 15rpx 28rpx 40rpx;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  background: #fff;
+  font-size: 30rpx;
+}
+
+.hint{
+  text-align: center;
+  color: red;
+  margin-top: 50rpx;
+}
+.hint .title{
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.hint text{
+  display: block;
+  line-height: 48rpx;
+}
+.addresslist{
+  line-height: 54rpx;
+  margin-bottom: 16rpx;
+}
+.radioGroup{
+  width: 100%;
+  padding: 10rpx 15rpx 10rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.radioGroup{
+  font-size: 28rpx;
+  background: #fff;
+}
+.radioGroup label.checked{
+  color: #79e0d6;
+}
+.radioGroup radio{
+  transform: scale(0.6);
+  -webkit-transform: scale(0.6);
+}
+.radioGroup .edit{
+  display: inline;
+   margin: 0rpx 25rpx; 
+}
+.radioGroup .use{
+  font-size: 30rpx;
+  color: #79e0d6;
+}
+.radioGroup .edit text,.delete text{
+  font-size: 28rpx;
+}
+.radioGroup .edit image,.delete image{
+  width: 42rpx;
+  height: 42rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+  margin-bottom: 8rpx;
+}

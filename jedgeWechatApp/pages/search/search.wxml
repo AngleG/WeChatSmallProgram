@@ -1,0 +1,28 @@
+<!--pages/search/search.wxml-->
+<view class='search'>
+  <input type='text' placeholder='请输入您要搜索的内容或关键字'></input>
+  <image src='../../images/search.png'></image>
+  <view class='fr'>确定 </view>
+</view>
+<view class='hot-search'>
+  <view class='title'>
+    <image src='../../images/rmen.png'></image>
+    <text>热门搜索</text>
+  </view>
+  <view wx:if='{{searchHot}}' class='searchHotList clearfix'>
+    <view wx:for='{{searchHot}}'>{{item}}</view>
+  </view>
+</view>
+<view class='history-search'>
+  <view class='title'>
+    <image src='../../images/lsSearch.png'></image>
+    <text>历史搜索</text>
+    <view class='fr clearData'>清除历史数据</view>
+  </view>
+  <view wx:if='{{historySearch}}' class='searchHotList clearfix'>
+    <view wx:for='{{historySearch}}'>{{item}}</view>
+  </view>
+  <view wx:else class='nothing'>
+    <text>暂无数据！</text>
+  </view>
+</view>

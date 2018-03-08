@@ -1,0 +1,32 @@
+<!--pages/addAddress/addAddress.wxml-->
+<import src='../../src/wetoast.wxml' />
+
+<view class='container'>
+  <view class='clearfix'>
+    <text class='fl'>收 货 人 ：</text>
+    <input class='fr' type='text' bindinput='inputNameEvent' value='{{inputName}}'></input>
+  </view>
+  <view class='clearfix'>
+    <text class='fl'>手机号码：</text>
+    <input class='fr' type='number' bindinput='inputPhoneEvent' value='{{inputPhone}}'></input>
+  </view>
+  <view class='clearfix'>
+    <text class='fl'>收货地址：</text>
+    <picker class='fl' bindchange='bindRegionChange' mode="region" value='{{region}}' custom-item="{{customItem}}">
+      <view>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+    </picker>
+  </view>
+  <view class='clearfix'>
+    <text class='fl'>详细地址：</text>
+    <input class='fr' type='text' bindinput='inputAddrEvent' value='{{addrDetail}}'></input>
+  </view>
+   <view style='margin-top: 30rpx;'> 
+    <label  class='checkbox'>
+      <checkbox value="{{check}}" checked="{{checked}}" bindtap="checkboxChange" />设为默认地址
+    </label>
+   </view>
+  <view class='saveBtn' bindtap='saveEvent'>保 存</view>
+</view>
+
+<!-- wetoast -->
+<template is='wetoast' data='{{...__wetoast__}}' />

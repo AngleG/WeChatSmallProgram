@@ -1,0 +1,69 @@
+<!--pages/personal/personal.wxml-->
+<view class='container'>
+  <scroll-view>
+    <!-- head begin -->
+    <view class='head'>
+      <view class='userinfo'>
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>获取头像昵称</button>
+        <block wx:else>
+          <image src='{{userInfo.avatarUrl}}' class='userinfo-avatar' background-size='cover'></image>
+          <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
+          <view class='personal-info' bindtap='gotoPersonalInfo' data-src='{{userInfo.avatarUrl}}'>
+            <text>个人信息 ></text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- head end -->
+
+    <view class='user-privilege'>
+      <view>积分 <text>0</text> </view>
+      <view>优惠券 <text>0</text> </view>
+    </view>
+
+    <view class='user-order'>
+      <view class='orders clearfix' bindtap='gotoOrders' data-orderid='0'>
+        <text class='fl'>我的订单</text>
+        <image class='fr slidepic' src='../../images/slide.png'></image>
+        <text class='fr showall'>查看全部</text>
+      </view>
+      <view class='order-summary'>
+        <!-- <view class='all'>
+          <image src='../../images/payment.png'></image>
+          <view><text>全部</text></view>
+        </view> -->
+        <view class='payment' bindtap='gotoOrders' data-orderid='1'>
+          <image src='../../images/payment.png'></image>
+          <view><text>待付款</text></view>
+        </view>
+        <view class='receive' bindtap='gotoOrders' data-orderId='4'>
+          <image src='../../images/receive.png'></image>
+          <view><text>待自提</text></view>
+        </view>
+        <view class='completed' bindtap='gotoOrders' data-orderId='5'>
+          <image src='../../images/completed.png'></image>
+          <view><text>已完成</text></view>
+        </view>
+      </view>
+    </view>
+
+    <view class='personal-list'>
+      <view class='clearfix' bindtap='gotoAddress'>
+        <image class='fl icon' src='../../images/address-icon.png'></image>
+        <text class='fl'>收货地址</text>
+        <image class='fr slidepic' src='../../images/slide.png'></image>
+      </view>
+      <view class='clearfix' bindtap='gotoSetUp'>
+        <image class='fl icon' src='../../images/setUp-icon.png'></image>
+        <text class='fl'>账户设置</text>
+        <image class='fr slidepic' src='../../images/slide.png'></image>
+      </view>
+      <view class='clearfix'>
+        <image class='fl icon' src='../../images/phone-icon.png'></image>
+        <text class='fl'>客服电话</text>
+        <image class='fr slidepic' src='../../images/slide.png'></image>
+      </view> 
+    </view>
+
+  </scroll-view>
+</view>
